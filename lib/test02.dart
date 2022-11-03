@@ -3,14 +3,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class Page02 extends StatefulWidget {
-  const Page02({Key? key}) : super(key: key);
+class Test02 extends StatefulWidget {
+  const Test02({Key? key}) : super(key: key);
 
   @override
-  State<StatefulWidget> createState() => _PageState02();
+  State<StatefulWidget> createState() => _TestState();
 }
 
-class _PageState02 extends State<Page02> {
+class _TestState extends State<Test02> {
   final _controller = ScrollController();
 
   void _scrollToMiddle() async {
