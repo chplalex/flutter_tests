@@ -1,6 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.chpllex.flutter_tests">
+    package="com.chpllex.flutter_tests"
+    android:versionCode="1"
+    android:versionName="1.0.1">
 
     <application
         android:name="${applicationName}"
@@ -13,7 +15,8 @@
             android:hardwareAccelerated="true"
             android:launchMode="singleTop"
             android:theme="@style/LaunchTheme"
-            android:windowSoftInputMode="adjustResize">
+            android:windowSoftInputMode="adjustResize"
+            tools:targetApi="honeycomb">
             <!-- Specifies an Android theme to apply to this Activity as soon as
                  the Android process has started. This theme is visible to the user
                  while the Flutter UI initializes. After that, this theme continues
@@ -36,7 +39,7 @@
                 <category android:name="android.intent.category.BROWSABLE" />
 
                 <data
-                    android:host="flutter_tests.chplalex.com"
+                    android:host="magen-dev-server.azurewebsites.net"
                     android:scheme="https" />
             </intent-filter>
         </activity>
