@@ -10,8 +10,6 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>https</string>
-				<string>http</string>
-				<string>magen</string>
 			</array>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
