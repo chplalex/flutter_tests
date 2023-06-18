@@ -1,8 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bluetooth_basic/flutter_bluetooth_basic.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 import 'test07.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  final status1 = await Permission.bluetooth.request();
+  final status2 = await Permission.bluetoothScan.request();
+
+  print("CHPL => permission bluetooth request status: $status1");
+  print("CHPL => permission bluetoothScan request status: $status2");
+
+  if (status1 != PermissionStatus.granted || status2 != PermissionStatus.granted) {
+    return;
+  }
+
+  BluetoothManager.instance.scan(timeout: const Duration(seconds: 30)).listen((device) {
+    print("CHPL => device: $device");
+  }, onError: (error) {
+    print("CHPL => error: $error");
+  });
+
   WidgetsFlutterBinding.ensureInitialized();
 
   runApp(const MyApp());
