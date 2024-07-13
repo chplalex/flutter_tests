@@ -8,7 +8,6 @@
 .buildlog/
 .history
 .svn/
-.fvm
 
 # IntelliJ related
 *.iml
@@ -45,3 +44,7 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+/.fvmrc
+
+# FVM Version Cache
+.fvm/
