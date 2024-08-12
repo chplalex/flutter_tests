@@ -37,15 +37,22 @@ class _TestState extends State<TestWidget> {
 
   void _onTap() {
     if (Platform.isAndroid) {
-      const intent = AndroidIntent(
-          action: 'android.intent.action.MAIN',
-          category: 'android.intent.category.APP_EMAIL',
-          flags: [Flag.FLAG_ACTIVITY_NEW_TASK]);
-      intent.launch().catchError((error) {
+      const AndroidIntent(
+        action: 'android.intent.action.MAIN',
+        category: 'android.intent.category.APP_EMAIL',
+        flags: [Flag.FLAG_ACTIVITY_NEW_TASK],
+      ).launch().then((_) {
+        debugPrint('Launch success');
+      }).catchError((error) {
         debugPrint('Launch error: $error');
       });
-    } else if (Platform.isIOS) {
-      launchUrl(Uri.parse("message://")).catchError((error) {
+    }
+
+    if (Platform.isIOS) {
+      launchUrl(Uri.parse("message://")).then((result) {
+        debugPrint('Launch result: $result');
+        return Future.value(result);
+      }).catchError((error) {
         debugPrint('Launch error: $error');
         return Future.value(false);
       });
